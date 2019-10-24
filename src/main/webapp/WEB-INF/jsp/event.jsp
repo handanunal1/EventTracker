@@ -21,12 +21,13 @@
 </style>
 </head>
 <body>
-	<form:form commandName="event">
-		<form:errors path="*" cssClass="errorblock" element=div></form:errors>
+	<form:form modelAttribute="event">
+		<form:errors path="*" cssClass="errorblock" element="div"></form:errors>
 		<label for="textinput1">Enter Minutes:</label>
-		<form:input path="name" cssErrorClass="error" />
-		<form:errors path="name" cssClass="error"></form:errors>
-		<br>
+    <form:input path="name"/>	
+    
+    
+    
 		<input type="submit" class="btn" value="Enter Event">
 	</form:form>
 </body>
