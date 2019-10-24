@@ -4,15 +4,14 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
-@Configuration /*
-				 * We don't need a web xml,create a servlet.. Spring automatically creates
-				 * context
-				 */
+@Configuration 
 @EnableWebMvc
 @ComponentScan(basePackages = "com.pluralsight")
-public class WebConfig {
+public class WebConfig   implements WebMvcConfigurer{
 
 	@Bean
 	public InternalResourceViewResolver getInternalResourceViewResolver() {
@@ -21,4 +20,17 @@ public class WebConfig {
 		resolver.setSuffix(".jsp");
 		return resolver;
 	}
+	
+
+	@Override
+		public void addResourceHandlers(ResourceHandlerRegistry registry) {
+			registry.addResourceHandler("/pdf/**").addResourceLocations("/WEB-INF/pdf/");
+			registry.addResourceHandler("/css/**").addResourceLocations("/WEB-INF/css/");
+			
+		
+			
+		}
+	
+	
+	
 }

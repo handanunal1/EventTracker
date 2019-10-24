@@ -21,12 +21,14 @@ public class WebAppInitializer implements WebApplicationInitializer {
 				new DispatcherServlet(context));
 		dispatcher.setLoadOnStartup(1);
 		dispatcher.addMapping("*.html");
+		dispatcher.addMapping("*.pdf");
+		dispatcher.addMapping("*.css");
 
 	}
 
 	private AnnotationConfigWebApplicationContext getContext() {
 		AnnotationConfigWebApplicationContext context = new AnnotationConfigWebApplicationContext();
-		//context.setConfigLocation("com.pluralsight.WebConfig");
+		// context.setConfigLocation("com.pluralsight.WebConfig");
 		context.register(WebConfig.class);
 		return context;
 	}
