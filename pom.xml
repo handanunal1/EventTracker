@@ -35,6 +35,8 @@
 		<start-class>com.pluralsight.Application</start-class>
 		<java.version>1.7</java.version>
 	</properties>
+	
+	
 
 	<build>
 		<plugins>
